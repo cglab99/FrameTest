@@ -6,9 +6,9 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
-public class ClassTest extends JFrame {
+public class ClassTest extends JFrame implements ActionListener {
 	JLabel label;
-	JButton click, click2, click3, click4;
+	JButton click, click2, click3, click4, click5;
 	
 	ClassTest() {
 		this.setBounds(100, 100, 300, 200);
@@ -53,11 +53,20 @@ public class ClassTest extends JFrame {
 		} );
 		this.add(click4);
 		
+		click5 = new JButton("click5");
+		click5.addActionListener( this );
+		this.add(click5);
+		
 	}
 	
 	public static void main(String[] args) {
 		ClassTest myFrame = new ClassTest();
 		myFrame.setVisible(true);
 		myFrame.setTitle("프레임 테스트");
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		label.setText("Number 5");
 	}
 }
